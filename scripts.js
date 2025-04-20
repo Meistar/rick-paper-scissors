@@ -14,3 +14,10 @@ function getComputerChoice() {
 }
 
 getComputerChoice();
+
+function getHumanChoice() {
+    let input = prompt("whats your pick?");
+    console.log(input);
+}
+
+getHumanChoice();
