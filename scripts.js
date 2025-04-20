@@ -11,21 +11,18 @@ function getComputerChoice() {
     } else if (ranNum === 3) {
         ranNum = "scissors";
     }
-    return console.log(ranNum);
+    console.log(ranNum);
+    return ranNum;
 }
 
 // create a function named 'getHumanChoice' that asks the user for input (rock,paper or scissors).
 //right now it doesnt have a way to check if the input is valid
 
-const computerSelection = getComputerChoice();
-
 function getHumanChoice() {
     let input = prompt("whats your pick?").toLowerCase();
-
-    return console.log(input);
+    console.log(input);
+    return input;
 }
-
-const humanSelection = getHumanChoice();
 
 //create a way to keep track of the score of the player(human and computer)
 
@@ -42,14 +39,23 @@ function playRound(humanSelection, computerSelection) {
         (humanSelection === "paper" && computerSelection === "rock") ||
         (humanSelection === "scissors" && computerSelection === "paper")
     ) {
-        humanScore++;
         return console.log(`You win! ${humanSelection} beats ${computerSelection}`);
-    } else if (humanSelection === humanSelection) {
+    } else if (
+        (humanSelection === "rock" && computerSelection === "rock") ||
+        (humanSelection === "paper" && computerSelection === "paper") ||
+        (humanSelection === "scissors" && computerSelection === "scissors")
+    ) {
         return console.log("Its a tie!");
-    } else {
-        return console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    } else if (
+        (humanSelection === "scissors" && computerSelection === "rock") ||
+        (humanSelection === "rock" && computerSelection === "paper") ||
+        (humanSelection === "paper" && computerSelection === "scissors")
+    ) {
+        return console.log(`You lose! ${computerSelection} beats ${humanSelection}`);
     }
 }
-console.log(computerSelection);
-console.log(humanSelection);
-const roundResult = playRound(humanSelection, computerSelection);
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+let roundResult = playRound(humanSelection, computerSelection);
