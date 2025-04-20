@@ -39,23 +39,42 @@ function playRound(humanSelection, computerSelection) {
         (humanSelection === "paper" && computerSelection === "rock") ||
         (humanSelection === "scissors" && computerSelection === "paper")
     ) {
+        humanScore++;
         return console.log(`You win! ${humanSelection} beats ${computerSelection}`);
+    } else if (
+        (humanSelection === "scissors" && computerSelection === "rock") ||
+        (humanSelection === "rock" && computerSelection === "paper") ||
+        (humanSelection === "paper" && computerSelection === "scissors")
+    ) {
+        computerScore++;
+        return console.log(`You lose! ${computerSelection} beats ${humanSelection}`);
     } else if (
         (humanSelection === "rock" && computerSelection === "rock") ||
         (humanSelection === "paper" && computerSelection === "paper") ||
         (humanSelection === "scissors" && computerSelection === "scissors")
     ) {
         return console.log("Its a tie!");
-    } else if (
-        (humanSelection === "scissors" && computerSelection === "rock") ||
-        (humanSelection === "rock" && computerSelection === "paper") ||
-        (humanSelection === "paper" && computerSelection === "scissors")
-    ) {
-        return console.log(`You lose! ${computerSelection} beats ${humanSelection}`);
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+//create a function that makes the game 5 rounds
+//WHILE roundNum is lower then 5 play again
 
-let roundResult = playRound(humanSelection, computerSelection);
+let roundNum = 1;
+function playGame() {
+    console.log(`round: ${roundNum}`);
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    const roundResult = playRound(humanSelection, computerSelection);
+    console.log(`human: ${humanScore}`);
+    console.log(`computer: ${computerScore}`);
+
+    while (roundNum < 5) {
+        roundNum++;
+        roundResult;
+
+        return playGame();
+    }
+}
+
+playGame();
