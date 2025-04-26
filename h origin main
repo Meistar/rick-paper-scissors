@@ -1,0 +1,41 @@
+[33mcommit 5fc2c13fc8d3e9b363516b60413ef3b278fee894[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/rps-ui[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mrps-ui[m[33m)[m
+Author: Egor Kolesnik <egorisk1998@gmail.com>
+Date:   Sun Apr 20 21:43:56 2025 +0300
+
+    didnt update too much again, but i finished the project
+
+[33mcommit c6c583d5bed5e512123e19f915a0dbd37c04969f[m
+Author: Egor Kolesnik <egorisk1998@gmail.com>
+Date:   Sun Apr 20 20:49:08 2025 +0300
+
+    fixed a mistake, i returned a consol.log instead of the value so now the playRound works
+
+[33mcommit 5d67eef1a01bf89cde790c6b0f9218323665dd6b[m
+Author: Egor Kolesnik <egorisk1998@gmail.com>
+Date:   Sun Apr 20 20:34:02 2025 +0300
+
+    changed the computerChoice function and started to work on the gameRound function
+
+[33mcommit a65daaa0d4b02851e3e1e12d84d657113026b8fd[m
+Author: Egor Kolesnik <egorisk1998@gmail.com>
+Date:   Sun Apr 20 18:54:33 2025 +0300
+
+    created the function getHumanChoice
+
+[33mcommit 69dbcd3d953b6f76f5f6a069f849719904eee5e0[m
+Author: Egor Kolesnik <egorisk1998@gmail.com>
+Date:   Sun Apr 20 18:39:19 2025 +0300
+
+    created the functaion getComputerChoice
+
+[33mcommit 7ff16c1bc0b21b827c69e72e8bfca3f56c687e6c[m
+Author: Egor Kolesnik <egorisk1998@gmail.com>
+Date:   Sun Apr 20 17:30:28 2025 +0300
+
+    Added index.html and scripts.js, and realized that I misspelled rock
+
+[33mcommit 57428b1ebab0c2780e077aa4eb3cc8f084cd3106[m
+Author: Meistar <113113698+Meistar@users.noreply.github.com>
+Date:   Sun Apr 20 17:24:49 2025 +0300
+
+    Initial commit

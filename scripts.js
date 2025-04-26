@@ -11,18 +11,12 @@ function getComputerChoice() {
     } else if (ranNum === 3) {
         ranNum = "scissors";
     }
-    console.log(ranNum);
+
     return ranNum;
 }
 
 // create a function named 'getHumanChoice' that asks the user for input (rock,paper or scissors).
 //right now it doesnt have a way to check if the input is valid
-
-function getHumanChoice() {
-    let input = prompt("whats your pick?").toLowerCase();
-    console.log(input);
-    return input;
-}
 
 //create a way to keep track of the score of the player(human and computer)
 
@@ -32,7 +26,7 @@ let computerScore = 0;
 //a function that starts the game, one round
 //IF human wins 'You win! {humanChoice} beats {computerChoice}
 //IF computer wins 'You lose! {computerChoice} beats {humanChoice}
-
+const div = document.querySelector(".roundResult");
 function playRound(humanSelection, computerSelection) {
     if (
         (humanSelection === "rock" && computerSelection === "scissors") ||
@@ -40,20 +34,26 @@ function playRound(humanSelection, computerSelection) {
         (humanSelection === "scissors" && computerSelection === "paper")
     ) {
         humanScore++;
-        return console.log(`You win! ${humanSelection} beats ${computerSelection}`);
+        const p = document.createElement("p");
+        p.innerText = `You win! ${humanSelection} beats ${computerSelection}`;
+        div.appendChild(p);
     } else if (
         (humanSelection === "scissors" && computerSelection === "rock") ||
         (humanSelection === "rock" && computerSelection === "paper") ||
         (humanSelection === "paper" && computerSelection === "scissors")
     ) {
         computerScore++;
-        return console.log(`You lose! ${computerSelection} beats ${humanSelection}`);
+        const p = document.createElement("p");
+        p.innerText = `You lose! ${computerSelection} beats ${humanSelection}`;
+        div.appendChild(p);
     } else if (
         (humanSelection === "rock" && computerSelection === "rock") ||
         (humanSelection === "paper" && computerSelection === "paper") ||
         (humanSelection === "scissors" && computerSelection === "scissors")
     ) {
-        return console.log("Its a tie!");
+        const p = document.createElement("p");
+        p.innerText = "It's a tie!";
+        div.appendChild(p);
     }
 }
 
@@ -69,12 +69,43 @@ function playGame() {
     console.log(`human: ${humanScore}`);
     console.log(`computer: ${computerScore}`);
 
-    while (roundNum < 5) {
-        roundNum++;
-        roundResult;
+    // while (roundNum < 5) {
+    //     roundNum++;
+    //     roundResult;
 
-        return playGame();
+    //     return playGame();
+    // }
+}
+function checkWinner(playerScore, compScore) {
+    if (playerScore === 5) {
+        const h2 = document.createElement("h2");
+        h2.innerText = "You WON!";
+        div.appendChild(h2);
+    } else if (computerScore === 5) {
+        const h2 = document.createElement("h2");
+        h2.innerText = "You lose!";
+        div.appendChild(h2);
     }
 }
+const playerScore = document.querySelector(".playerScore");
+const compScore = document.querySelector(".compScore");
+function keepScore(playerScore, compScore) {
+    playerScore.innerText = `player: ${humanScore}`;
+    compScore.innerText = `computer: ${computerScore}`;
+}
 
-playGame();
+const buttons = document.querySelectorAll("button");
+function getHumanChoice() {
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const humanChoice = `${button.className}`;
+            const compChoice = getComputerChoice();
+            playRound(humanChoice, compChoice);
+            keepScore(playerScore, compScore);
+            checkWinner(playerScore, compScore);
+        });
+    });
+}
+
+// playGame();
+getHumanChoice();
